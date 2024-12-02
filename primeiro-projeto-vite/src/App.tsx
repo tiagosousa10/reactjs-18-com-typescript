@@ -3,11 +3,18 @@ import { UserInfo } from "./components/UserInfo"
 
 
 const App = () => {
-  return(
-    <div>
-      <h1>Meu componente de utilizador</h1>
-     <UserInfo/>
-    </div>
-  )
+  const isLogged = false
+  if(!isLogged){
+    return;
+  }
+
+    return(
+      <div>
+        <h1>{isLogged ? 'Meu componente de utilizador' : 'Não está logado!'}</h1>
+        {isLogged && <UserInfo/>}
+      </div>
+    )
+ 
+  
 }
 export default App
