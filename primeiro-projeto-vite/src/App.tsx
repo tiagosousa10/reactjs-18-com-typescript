@@ -1,16 +1,13 @@
+import { Button } from "./components/Button"
+
 const App = () => {
 
-const handleClick = () => {
-  alert('clicou')
-}
+  const handleClick = (label:string) => alert(label)
 
   return(
     <div>
-      <button
-        onClick={() => handleClick()}
-      >
-        Clique Aqui!
-      </button>
+     <Button 
+      onClick={handleClick}/>
     </div>
   )
  
