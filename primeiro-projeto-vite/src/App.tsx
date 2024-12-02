@@ -1,17 +1,16 @@
-import { FormEvent } from "react"
-
+import {useState} from 'react'
 
 const App = () => {
-  const handleSubmit = (e:FormEvent) => {
-    e.preventDefault()
-    alert('form enviado')
+  const [count,setCount] = useState(0)
+
+  const handleClick = () => {
+    setCount(count + 1)
   }
+
   return(
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" />
-        <button>Enviar</button>
-      </form>
+      <h2>{count}</h2>
+      <button onClick={handleClick}>Adicionar +1</button>
     </div>
 
   )
