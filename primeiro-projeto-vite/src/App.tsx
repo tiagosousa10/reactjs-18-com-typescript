@@ -1,13 +1,12 @@
 import React from "react"
-import UserAge ,{UserName ,UserEmail } from "./UserName"
+import { UserInfo } from "./components/UserInfo"
+
 
 const App = () => {
   return(
     <div>
       <h1>Meu componente de utilizador</h1>
-      <UserName/>
-      <UserEmail/>
-      <UserAge/>
+     <UserInfo/>
     </div>
   )
 }
