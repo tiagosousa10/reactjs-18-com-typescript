@@ -1,28 +1,30 @@
-import {useState} from 'react'
+import { ChangeEvent, useState } from "react"
 
 const App = () => {
-  const [logged, setLogged] = useState(false)
+  const [value,setValue] = useState('')
 
-  const handleClick = () => {
-    setLogged(!logged)
+  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value)
   }
- 
 
   return(
     <div>
-      {logged && (
-         <div>
-         Utilizador Logado (área privada!)
-       </div>
-      )}
-     
-      <button onClick={handleClick}>
-        {logged ? ' Mostrar' : 'Ocultar'}
-      </button>
+      {value == ''
+       ? 
+      <>  
+      <input 
+        type="text" 
+        value={value}
+        onChange={handleChange}
+       />
+      {value}
+     </>
+     :
+     'voce já escreveu!'
+     }
+    
     </div>
 
-  )
- 
-  
+  )  
 }
 export default App
