@@ -1,16 +1,24 @@
 import {useState} from 'react'
 
 const App = () => {
-  const [count,setCount] = useState(0)
+  const [logged, setLogged] = useState(false)
 
   const handleClick = () => {
-    setCount(count + 1)
+    setLogged(!logged)
   }
+ 
 
   return(
     <div>
-      <h2>{count}</h2>
-      <button onClick={handleClick}>Adicionar +1</button>
+      {logged && (
+         <div>
+         Utilizador Logado (área privada!)
+       </div>
+      )}
+     
+      <button onClick={handleClick}>
+        {logged ? ' Mostrar' : 'Ocultar'}
+      </button>
     </div>
 
   )
