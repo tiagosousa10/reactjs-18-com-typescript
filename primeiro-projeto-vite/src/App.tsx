@@ -1,17 +1,18 @@
-import React from "react"
-import { Card } from "./components/Card"
-import { UserName } from "./components/UserName"
-
-
 const App = () => {
- 
-    return(
-      <div>
-        <Card>
-          <h1>TEXTO</h1>
-        </Card>
-      </div>
-    )
+
+const handleClick = () => {
+  alert('clicou')
+}
+
+  return(
+    <div>
+      <button
+        onClick={() => handleClick()}
+      >
+        Clique Aqui!
+      </button>
+    </div>
+  )
  
   
 }
