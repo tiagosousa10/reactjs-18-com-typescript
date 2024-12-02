@@ -3,7 +3,7 @@ import { UserInfo } from "./components/UserInfo"
 
 
 const App = () => {
-  const isLogged = false
+  const isLogged = true
   if(!isLogged){
     return;
   }
