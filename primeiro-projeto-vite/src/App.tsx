@@ -1,18 +1,19 @@
-import {MouseEvent} from 'react'
-import { Button } from "./components/Button"
+import { FormEvent } from "react"
+
 
 const App = () => {
-  const handleClick = (e: MouseEvent) => {
-    //interromper a propagacao
-    e.stopPropagation()
-    alert('cliquei no button')
+  const handleSubmit = (e:FormEvent) => {
+    e.preventDefault()
+    alert('form enviado')
   }
   return(
-    <div onClick={() => alert('Clicou na div')} style={{border: '1px solid red', padding:30, background: 'red'}}>
-      <button onClick={handleClick}>
-        Texto button!
-      </button>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" />
+        <button>Enviar</button>
+      </form>
     </div>
+
   )
  
   
