@@ -1,12 +1,14 @@
+import { ThemeProvider } from "styled-components"
 import { Input } from "./components/Input"
+import theme from "./theme/theme"
 
 
 function App() {
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Input/>
-    </div>
+    </ThemeProvider>
   )
 }
 
