@@ -1,11 +1,11 @@
-import Card from "./components/Card"
+import { Input } from "./components/Input"
 
 
 function App() {
 
   return (
     <div>
-      <Card/>
+      <Input/>
     </div>
   )
 }
