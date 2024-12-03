@@ -1,10 +1,11 @@
-import { CardTitle } from '../CardTitle'
-import styles from './Card.module.css'
-export const Card = () => {
+import {Card, Title} from './styles';
+
+export default () => {
   return(
-    <div id={styles.container} >
-      ...
-      <CardTitle/>
-    </div>
+   <Card>
+    <Title $color='green' $background='black'>
+      Um texto qualquer
+    </Title>
+   </Card>
   )
 }
