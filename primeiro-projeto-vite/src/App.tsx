@@ -6,19 +6,13 @@ const App = () => {
  
   const handleAdd = () => {
     if(inputValue == '') return;
-    
     //metodo 1
-    /* setTasks([...tasks, inputValue])
-    setInputValue('') */
-
-    //metodo 2
-    //setTasks(tasks.concat([inputValue]))
-
-    //metodo 3
-    const newTasks = [...tasks]
-    newTasks.push(inputValue)
-    setTasks(newTasks)
+    setTasks([...tasks, inputValue])
     setInputValue('')
+  }
+
+  const handleDel = (key:number) => {
+    setTasks(tasks.filter((_value,index) => index != key))
   }
 
   return(
@@ -36,7 +30,10 @@ const App = () => {
      <div>
       <ul>
         {tasks.map((task, key) => (
-          <li key={key}> {task}  </li>
+          <li key={key}> 
+          {task}  
+          - 
+          <button onClick={() => handleDel(key)}>Excluir</button> </li>
         ))}
       </ul>
      </div>
