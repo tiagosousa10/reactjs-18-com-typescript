@@ -1,9 +1,10 @@
-import styles from './styles'
-
+import { CardTitle } from '../CardTitle'
+import styles from './Card.module.css'
 export const Card = () => {
   return(
-    <div style={styles.container}>
+    <div id={styles.container} >
       ...
+      <CardTitle/>
     </div>
   )
 }
