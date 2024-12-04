@@ -1,12 +1,24 @@
-import {useId} from 'react'
+import {useRef} from 'react'
 
-function App() {
-  const inputId= useId()
+const App = () => {
+  const inputElement = useRef<HTMLInputElement | null>(null)
+
+ const handleClick = () => {
+  const current = inputElement.current;
+
+  if(!current){
+    return
+  }
   
+  current.focus()
+
+
+ }
+
   return (
     <div>
-      <label htmlFor={inputId}>Insira algo no input</label>
-      <input placeholder="Digite algo" id={inputId} />
+      <input ref={inputElement} />
+      <button onClick={handleClick}>Focar no input</button>
        
     </div>
   )
