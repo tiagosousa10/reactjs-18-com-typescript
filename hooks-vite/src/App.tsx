@@ -1,45 +1,23 @@
-import {act, useReducer, useState} from 'react'
+import {createContext, useState} from 'react'
+import { Button } from './components/Button'
+import { Card } from './components/Card';
 
-type TasksState = string[]
-type TasksAction = {
-  type:'add',
-  payload:string
+type ThemeContextType = {
+  theme:string,
+  setTheme: (value:string) => void;
 }
 
-
-const reducer = (state:TasksState,action: TasksAction) :  TasksState => {
-  if(action.type == 'add' && action.payload != ''){
-   return  [...state, action.payload]
-  }
-
-  return state
-}
+export const ThemeContext = createContext<ThemeContextType>({theme: '', setTheme:() => {}})
 
 const App = () => {
-  const [tasks,dispatch] = useReducer(reducer, [])
-  const [inputValue,setInputValue] = useState('')
-
-  const handleClick = () => {
-    dispatch({type:'add', payload:inputValue})
-    setInputValue('')
-  }
+  const [theme,setTheme] = useState('light')
 
 
   return (
-    <div>
-      <input 
-        value={inputValue} 
-        onChange={(e) => setInputValue(e.target.value)}
-       />
-
-      <button onClick={handleClick} >Nova Tarefa</button>
-
-      <ul>
-        {tasks.map((value,key) => (
-          <li key={key}> {value} </li>
-        ))}
-      </ul>
-    </div>
+   <ThemeContext.Provider value={{theme,setTheme}}>
+    <Button/>
+    <Card/>
+   </ThemeContext.Provider>
   )
 }
 
