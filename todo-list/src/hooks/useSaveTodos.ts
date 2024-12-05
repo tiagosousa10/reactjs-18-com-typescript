@@ -10,7 +10,7 @@ const LOCAL_STORAGE_KEY = 'TODOS_DATA'
 export const useSaveTodos = () => {
   const [gottedInitialData,setGottedInitialData] = useState(false)
 
-   const {state,dispatch} = useContext(TodoContext) 
+  const {state,dispatch} = useContext(TodoContext) 
 
   const handleChangesTodo = () => {
     if(!gottedInitialData) return;
