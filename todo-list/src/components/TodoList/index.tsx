@@ -1,0 +1,46 @@
+import { useContext } from 'react'
+import styles from './TodoList.module.css'
+import { TodoContext } from '../../contexts/TodoContext'
+import EmptyIcon  from '../../assets/clipboard.svg?react'
+import { TodoItem } from '../TodoItem'
+
+
+export const TodoList = () => {
+  const {state: todos} = useContext(TodoContext)
+
+
+  return(
+    <div className={styles.container}>
+      {todos.length > 0 && (
+        <div className={styles.infoTasksContainer}>
+          <span className={styles.infoDoneTasks}>Concluidas</span>
+
+          <div className={styles.infoCountDoneTasks}>
+            {todos.filter((item) => item.isDone).length} de {todos.length}
+          </div>
+        </div>
+      )}
+
+      {todos.length < 1 && (
+        <div className={styles.emptyContainer}>
+          <EmptyIcon/>
+          <p className={styles.emptyLabel} >
+            <strong>Você ainda não tem tarefas cadastradas!</strong>
+            <br />
+            Crie tarefas e organize o seus itens
+          </p>
+        </div>
+      )}
+
+
+      <div className={styles.tasksContainer}>
+        {todos.map((todo, key) => (
+          <TodoItem 
+          key={key} 
+          data={todo} 
+          dataIndex={key} />
+        ))}
+      </div>
+    </div>
+  )
+}
