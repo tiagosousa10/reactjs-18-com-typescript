@@ -9,25 +9,28 @@ type Post = {
 
 const App = () => {
   const [postsData,setPostsData] = useState<Post[]>([])
-  
+  const [loading,setLoading] = useState(false)
 
   const handleGetPosts = async () => {
-   const request = await fetch('https://jsonplaceholder.typicode.com/posts', {
+    setLoading(true)
+
+    const request = await fetch('https://jsonplaceholder.typicode.com/posts', {
       method:'GET',
       headers:{
         'Content-Type': 'application/json'
       }
     })
 
-   const posts: Post[] = await request.json()
-
-   setPostsData(posts)
+    const posts: Post[] = await request.json()
+    setLoading(false)
+    setPostsData(posts)
   }
 
 
   return(
     <div>
       <button onClick={handleGetPosts}>Fazer Requisicao</button>
+      {loading && 'Carregado...'}
       <ul>
         {postsData.map(item => (
           <li key={item.id}>
