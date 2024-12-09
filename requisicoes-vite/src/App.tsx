@@ -1,25 +1,21 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios"
 
 const App = () => {
-axios.defaults.baseURL= 'http://placeholder.typicode.com'
+  const controller = new AbortController()
 
-  const handleGetPosts = async () => {
+  const handleOnClick = async () => {
+    await axios('https://jsonplaceholder.typicode.com/posts', {signal: controller.signal}) 
+  }
 
-    try{
-      const posts = await axios.get('posts')
-      console.log(posts.data)
-
-    }catch(e){
-      const error = e as AxiosError
-      console.log('error: ',error.message)
-    }
-
+  const handleOnClickStop = () => {
+    controller.abort()
   }
 
 
   return(
     <div>
-      <button onClick={handleGetPosts}>Fazer Requisicao</button>
+      <button onClick={handleOnClick}>Fazer Requisicao</button>
+      <button onClick={handleOnClickStop}>Parar Requisicao</button>
     </div>
   )
 }
