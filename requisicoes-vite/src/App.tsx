@@ -1,15 +1,11 @@
+import axios from "axios"
+
 const App = () => {
-  const handleGetPosts = async () => {
-      const request = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
-        method:'DELETE',
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      })
 
-      const result= await request.json()
+  const handleGetPosts =() => {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+    .then((response) => {console.log(response.data)})
 
-      console.log('o resultado é :' , result)
   }
 
   return(
@@ -19,4 +15,5 @@ const App = () => {
   )
 }
 
-export default App;
+
+export default App
