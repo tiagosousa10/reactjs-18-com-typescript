@@ -1,54 +1,21 @@
-import { useState } from "react"
-
-type Post = {
-  userId:number,
-  id:number,
-  title:string,
-  body:string
-}
-
 const App = () => {
-  const [postsData,setPostsData] = useState<Post[]>([])
-  const [loading,setLoading] = useState(false)
-  const [errorMessage,setErrorMessage] = useState('')
-
   const handleGetPosts = async () => {
-    setLoading(true)
-    
-    try{
       const request = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method:'GET',
+        method:'POST',
+        body:JSON.stringify({title:'Novo posto!', body:'Muito top!', userId:1}),
         headers:{
           'Content-Type': 'application/json'
         }
       })
-  
-      const posts: Post[] = await request.json()
-      setPostsData(posts)
-      setErrorMessage('')
 
-    }catch{
-      setErrorMessage('Houve um erro na requisicao!')
-    }
+      const result= await request.json()
 
-    setLoading(false)
-
-    
+      console.log('o resultado é :' , result)
   }
-
 
   return(
     <div>
       <button onClick={handleGetPosts}>Fazer Requisicao</button>
-      {loading && 'Carregado...'}
-      {errorMessage && <p> {errorMessage} </p>}
-      <ul>
-        {postsData.map(item => (
-          <li key={item.id}>
-            {item.title}
-          </li>
-        ))}
-      </ul>
     </div>
   )
 }
