@@ -1,11 +1,16 @@
 import axios from "axios"
 
+
+
 const App = () => {
+  const handleGetPosts =async () => {
+    const posts = await axios.post('https://jsonplaceholder.typicode.com/posts/', {
+      title: 'Novo post',
+      body: 'novoBody',
+      userId:1
+    },{})
 
-  const handleGetPosts =() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-    .then((response) => {console.log(response.data)})
-
+    console.log(posts.data)
   }
 
   return(
