@@ -1,8 +1,7 @@
 const App = () => {
   const handleGetPosts = async () => {
-      const request = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method:'POST',
-        body:JSON.stringify({title:'Novo posto!', body:'Muito top!', userId:1}),
+      const request = await fetch('https://jsonplaceholder.typicode.com/posts/1', {
+        method:'DELETE',
         headers:{
           'Content-Type': 'application/json'
         }
