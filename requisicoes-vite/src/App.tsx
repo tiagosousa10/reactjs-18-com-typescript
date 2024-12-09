@@ -1,19 +1,19 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const App = () => {
-  const api = axios.create({
-    baseURL: 'https://placeholder.typicode.com'
-  })  
-
-  const api2 = axios.create({
-    baseURL: 'https://placeholder.typicode.com'
-  })  
-
+axios.defaults.baseURL= 'http://placeholder.typicode.com'
 
   const handleGetPosts = async () => {
-    const posts = await api2.get('posts')
 
-    console.log(posts.data)
+    try{
+      const posts = await axios.get('posts')
+      console.log(posts.data)
+
+    }catch(e){
+      const error = e as AxiosError
+      console.log('error: ',error.message)
+    }
+
   }
 
 
