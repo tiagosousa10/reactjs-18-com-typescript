@@ -1,23 +1,40 @@
+import { useState } from "react"
+
+type Post = {
+  userId:number,
+  id:number,
+  title:string,
+  body:string
+}
+
 const App = () => {
+  const [postsData,setPostsData] = useState<Post[]>([])
+  
+
   const handleGetPosts = async () => {
-    const posts = fetch('https://jsonplaceholder.typicode.com/posts', {
+   const request = await fetch('https://jsonplaceholder.typicode.com/posts', {
       method:'GET',
       headers:{
         'Content-Type': 'application/json'
       }
-    }).then((_response) => {console.log('Tudo certo')})
+    })
 
-    //const postsJson = await posts.json()
+   const posts: Post[] = await request.json()
 
-    const postsAwait = await posts
-
-    console.log(postsAwait)
+   setPostsData(posts)
   }
 
 
   return(
     <div>
       <button onClick={handleGetPosts}>Fazer Requisicao</button>
+      <ul>
+        {postsData.map(item => (
+          <li key={item.id}>
+            {item.title}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
