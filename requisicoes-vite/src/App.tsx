@@ -1,17 +1,21 @@
-import axios from "axios"
-
-
+import axios from "axios";
 
 const App = () => {
-  const handleGetPosts =async () => {
-    const posts = await axios.post('https://jsonplaceholder.typicode.com/posts/', {
-      title: 'Novo post',
-      body: 'novoBody',
-      userId:1
-    },{})
+  const api = axios.create({
+    baseURL: 'https://placeholder.typicode.com'
+  })  
+
+  const api2 = axios.create({
+    baseURL: 'https://placeholder.typicode.com'
+  })  
+
+
+  const handleGetPosts = async () => {
+    const posts = await api2.get('posts')
 
     console.log(posts.data)
   }
+
 
   return(
     <div>
@@ -20,5 +24,4 @@ const App = () => {
   )
 }
 
-
-export default App
+export default App;
