@@ -4,7 +4,7 @@ import { setTheme } from "../redux/slices/themeSlice"
 const LOCAL_STORAGE_KEY= import.meta.env.VITE_LOCAL_STORAGE_THEME_KEY
 
 export const useTheme = () => {
-  const {theme} = useAppSelector(state => state.theme)
+  const {theme} = useAppSelector((state) => state.theme)
 
   const dispatch = useAppDispatch()
 

@@ -1,10 +1,14 @@
 import { useEffect } from "react";
 import { useAuth } from "./hooks/auth";
 import { useTheme } from "./hooks/theme";
+import { ThemeProvider } from "styled-components";
+import { lightTheme } from "./themes/lightTheme";
+import { darkTheme } from "./themes/darkTheme";
+
 
 const App = () => {
   const {handleAuthenticateUser} = useAuth()
-  const {handleInitTheme} = useTheme()
+  const {handleInitTheme, theme} = useTheme()
 
 
   useEffect(() => {
@@ -16,9 +20,9 @@ const App = () => {
   }, [])
 
   return(
-    <div>
-      ...
-    </div>
+    <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
+      Um texto Qualquer
+    </ThemeProvider>
   )
 }
 
