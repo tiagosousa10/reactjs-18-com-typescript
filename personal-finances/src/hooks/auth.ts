@@ -34,7 +34,6 @@ export const useAuth = () => {
     authenticate(data.user, authToken)
   }
 
-
   // function para login
   const handleSignIn = async({email,password} : {email:string,password:string}) => {
     const request = await signIn(email,password)
