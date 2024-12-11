@@ -8,7 +8,7 @@ type Props = {
   setShow: (value:boolean) => void,
   autoHideDuration?:number,
   title?:string,
-  children:ReactNode
+  children?:ReactNode
 }
 
 const Alert = ({ type, show, setShow, title, children, autoHideDuration = 6000} : Props) => {
