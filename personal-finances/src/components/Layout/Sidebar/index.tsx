@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useAppSelector } from "../../../redux/hooks"
-import { Link, useLocation } from "react-router-dom"
-import { Container, Footer, Header, HeaderIcon, HeaderLogo, Navigation, NavigationItem, NavigationItemIcon, NavigationItemLabel, User, UserAvatar, UserName } from "./styles"
+import { useLocation } from "react-router-dom"
+import { Container, Footer, Header, HeaderIcon, HeaderLogo, Navigation, NavigationItem, NavigationItemIcon, NavigationItemLabel, User, UserAvatar, UserName ,Link } from "./styles"
 import { Button } from "../../Button"
 import { MdOutlineAddTask, MdOutlineDashboard, MdOutlineListAlt } from "react-icons/md"
 
