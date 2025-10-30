@@ -10,12 +10,12 @@ body{
 
 ::selection{
   color:white;
-  background: #5049e2;
+  background: #B87C4C;
 }
 
 ::-moz-selection{
   color:white;
-  background: #5049e2;
+  background: #B87C4C;
 }
 
 /*custom scrollbar  */
@@ -36,5 +36,5 @@ body{
 
 /*handle on over  */
 ::-webkit-scrollbar-thumb:hover{
-  background:#5049e2;
+  background:#B87C4C;
 }
