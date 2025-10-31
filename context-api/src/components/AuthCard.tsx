@@ -6,8 +6,14 @@ export const AuthCard = () => {
 
 
 
-  const handleSignIn = () => dispatch({type:'SIGNIN', payload: {user: {id:1, name: 'Tiago Sousa'}}})
-  const handleSignOut = () => dispatch({type:'SIGNOUT'})
+  const handleSignIn = () => dispatch({
+    type:'SIGNIN',
+    payload: {user: {id:1, name: 'Tiago Sousa'}}
+    })
+
+  const handleSignOut = () => dispatch({
+    type:'SIGNOUT'
+  })
 
   return(
     <div>
